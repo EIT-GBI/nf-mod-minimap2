@@ -1,9 +1,9 @@
 # nf-mod-minimap
 
 
-Nextflow module for minimap. Used as a git submodule by pipelines.
+Nextflow module for minimap2. Used as a git submodule by pipelines.
 
-Image: `ghcr.io/eit-gbi/nf-mod-minimap:latest`
+Image: `ghcr.io/eit-gbi/nf-mod-minimap2:latest`
 
 ## Processes
 
@@ -11,10 +11,10 @@ Image: `ghcr.io/eit-gbi/nf-mod-minimap:latest`
 
 ## Use as submodule
 ```bash
-git submodule add https://github.com/eit-gbi/nf-mod-minimap.git modules/minimap
+git submodule add https://github.com/eit-gbi/nf-mod-minimap2.git modules/minimap2  
 ```
 
 Then in your pipeline:
 ```
-include { MINIMAP } from './modules/minimap/main.nf'
+include { MINIMAP } from './modules/minimap2/main.nf'
 ```

@@ -2,12 +2,14 @@ FROM mambaorg/micromamba:1.5.8
 
 USER root
 
-# TODO: pin the version, e.g. minimap=1.21
-# (remove this TODO line once pinned — the CI build job is gated on its absence)
+ARG MINIMAP2_VERSION=2.28
+ARG SAMTOOLS_VERSION=1.20
+
 RUN micromamba install -y -n base -c bioconda -c conda-forge \
-        minimap \
+        minimap2=${MINIMAP2_VERSION} \
+        samtools=${SAMTOOLS_VERSION} \
     && micromamba clean --all --yes
 
-ENV PATH=/opt/conda/bin:$PATH
+ENV PATH=/opt/conda/bin:${PATH}
 
-CMD ["minimap"]
+CMD ["minimap2"]
