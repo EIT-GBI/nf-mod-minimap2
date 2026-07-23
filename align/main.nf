@@ -22,6 +22,7 @@ process MINIMAP2_ALIGN {
         ${fasta} \\
         ${reads} \\
         | samtools sort -@ ${task.cpus} -o ${meta.id}.sorted.bam
+    samtools index -@ ${task.cpus} ${meta.id}.sorted.bam
     """
 
     stub:
