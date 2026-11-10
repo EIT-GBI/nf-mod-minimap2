@@ -5,7 +5,12 @@ alignment). Used as a git submodule by pipelines.
 
 Image: `ghcr.io/eit-gbi/nf-mod-minimap2:v0.0.0`
 
-Built for `linux/amd64` and `linux/arm64`.
+Built on `debian:13-slim` for `linux/amd64` and `linux/arm64`. minimap2 and
+samtools are both compiled from pinned, checksummed sources, which is what makes
+the arm64 image genuine rather than an x86_64 binary in an arm64 wrapper.
+
+The image carries samtools as well as minimap2: `MINIMAP2_ALIGN` sorts and
+indexes in the same task.
 
 ## Processes
 
