@@ -3,7 +3,7 @@
 Nextflow module for [minimap2](https://github.com/lh3/minimap2) (long-read
 alignment). Used as a git submodule by pipelines.
 
-Image: `ghcr.io/eit-gbi/nf-mod-minimap2:v0.0.0`
+Image: `ghcr.io/eit-gbi/nf-mod-minimap2:v1.0.0`
 
 Built on `debian:13-slim` for `linux/amd64` and `linux/arm64`. minimap2 and
 samtools are both compiled from pinned, checksummed sources, which is what makes
@@ -73,7 +73,7 @@ Pin to a release tag rather than a branch, so pipeline runs stay reproducible:
 
 ```bash
 git submodule add https://github.com/EIT-GBI/nf-mod-minimap2.git modules/minimap2
-git -C modules/minimap2 checkout v0.0.0
+git -C modules/minimap2 checkout v1.0.0
 ```
 
 Then include the module's container config from your `nextflow.config`. Nextflow
