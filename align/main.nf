@@ -9,7 +9,7 @@ process MINIMAP2_ALIGN {
     tuple path(fasta), path(fai)
 
     output:
-    tuple val(meta), path("${meta.id}.sorted.bam"), emit: bam
+    tuple val(meta), path("${meta.id}.sorted.bam"), path("${meta.id}.sorted.bam.bai"), emit: bam
 
     script:
     def args = task.ext.args ?: ''
@@ -27,6 +27,6 @@ process MINIMAP2_ALIGN {
 
     stub:
     """
-    touch ${meta.id}.sorted.bam
+    touch ${meta.id}.sorted.bam ${meta.id}.sorted.bam.bai
     """
 }
