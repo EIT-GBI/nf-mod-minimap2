@@ -21,6 +21,15 @@ RUN micromamba install -y -n base -c bioconda -c conda-forge \
         samtools=${SAMTOOLS_VERSION} \
     && micromamba clean --all --yes
 
-ENV PATH=/opt/conda/bin:${PATH}
+ENV PATH=/opt/conda/bin:${PATH} \
+    LC_ALL=C.UTF-8
 
-CMD ["minimap2"]
+LABEL org.opencontainers.image.title="minimap2" \
+    org.opencontainers.image.description="minimap2 and samtools on mambaorg/micromamba" \
+    org.opencontainers.image.version="${MINIMAP2_VERSION}" \
+    org.opencontainers.image.source="https://github.com/lh3/minimap2" \
+    org.opencontainers.image.licenses="MIT"
+
+# No ENTRYPOINT: Nextflow invokes the container as `/bin/bash -c ...`, and an
+# ENTRYPOINT of ["minimap2"] turns that into `minimap2 /bin/bash`, which fails.
+CMD ["minimap2", "--help"]
