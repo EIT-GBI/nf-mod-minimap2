@@ -22,12 +22,13 @@ indexes in the same task.
 indexes in the same task, so the index is part of the output rather than a
 separate `SAMTOOLS_INDEX` step.
 
-It reads two fields off `meta`:
+It reads three fields off `meta`:
 
 | Field | Used for |
 | --- | --- |
 | `meta.preset` | `-x`, e.g. `map-ont` or `map-hifi` |
 | `meta.platform` | the `PL` field of the `@RG` header |
+| `meta.sample` | the `SM` field of the `@RG` header. Optional; falls back to `meta.id` |
 
 minimap2 cannot read BAM. To align an unaligned BAM, convert it first and keep
 the modified-base tags alive across the round trip:
