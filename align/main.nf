@@ -18,7 +18,7 @@ process MINIMAP2_ALIGN {
         ${args} \\
         -x ${meta.preset} \\
         -t ${task.cpus} \\
-        -R "@RG\\tID:${meta.id}\\tSM:${meta.id}\\tPL:${meta.platform}\\tLB:${meta.id}" \\
+        -R "@RG\\tID:${meta.id}\\tSM:${meta.sample ?: meta.id}\\tPL:${meta.platform}\\tLB:${meta.id}" \\
         ${fasta} \\
         ${reads} \\
         | samtools sort -@ ${task.cpus} -o ${meta.id}.sorted.bam
